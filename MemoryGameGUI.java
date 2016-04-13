@@ -48,8 +48,8 @@ public class MemoryGameGUI extends JFrame{
       rightPanel.add(attemptsLeft);
       rightPanel.add(matches);
       
-
-
+   
+   
       
       add(rightPanel,BorderLayout.EAST);
       result = new JLabel(filler);  
@@ -60,5 +60,43 @@ public class MemoryGameGUI extends JFrame{
       add(bottomPanel,BorderLayout.SOUTH);
       messageArea.setEditable(false);
       setVisible(true);
-      } 
+   } 
+      
+   //public void actionPerformed(ActionEvent ae){} 
+      
+      
+      
+   public int updateAttempts(int numAttempts){
+      numAttempts++;
+      String s = numAttempts+"";
+      attempts.setText(s);
+      return numAttempts;
+   }
+
+
+   public int updateFoundMatches(int numMatches, boolean checkMatch){
+      if (checkMatch == true){
+         result.setText("match found");
+         numMatches++;
+         String s = numMatches+"";
+         matches.setText(s);
+      }
+      else{
+         result.setText("not a match");
+      }
+      return numMatches;
+   }
+
+
+   public int updateAttemptsLeft(int numAttemptsLeft){
+      numAttemptsLeft--;
+      String s = numAttemptsLeft+"";
+      attemptsLeft.setText(s);
+      return numAttemptsLeft;
+   }
+
+      
+      
 }
+
+
